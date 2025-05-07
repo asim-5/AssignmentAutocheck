@@ -1,0 +1,31 @@
+# **Task 1**
+Write a function calculate_total_cost(price_list, tax_rate) that takes:
+1. A list of product prices (price_list).
+2. A sales tax rate of 5%.
+3. Returns the total cost after applying the sales tax.
+
+#**Task 2**
+Write a function which takes in a text as an argument, checks if the text is a palindrome or not and return the true if the text is palindrome otherwise returns false.
+
+
+PS: A palindrome is a word, phrase, or number that reads the same forward and backward
+
+
+example: madam, racecar etc.
+#**Task 3**
+Create a program that simulates a car's actions (start, stop, and turn) using functions.
+
+1. Write a function start_car() that prints "The car has started."
+
+2. Write a function stop_car() that prints "The car has stopped."
+
+3. Write a function turn_car(direction) that:
+
+
+4. Takes a direction argument ("left" or "right").
+
+  *   Prints "The car is turning left." or "The car is turning right."
+
+  *  Handle invalid directions with an error message.
+5. Write a main() function to  call all these functions atleast once.
+

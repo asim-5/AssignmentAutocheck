@@ -1,0 +1,8 @@
+langchain>=0.1.17
+langchain-openai>=0.1.6
+langchain-community>=0.0.19
+openai>=1.18.0
+tiktoken>=0.6.0
+chromadb>=0.4.24
+python-dotenv>=1.0.1
+nbformat>=5.10.0
