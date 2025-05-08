@@ -9,6 +9,7 @@ from langchain_community.document_loaders import TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains import RetrievalQA
 from langchain.docstore.document import Document
+import sys
 
 # Load environment
 load_dotenv()
@@ -62,12 +63,17 @@ def evaluate_code(code_str, retriever):
     return qa_chain.run({"query": prompt})
 
 # Save result to file
-def save_result(result_str, submission_path):
+def save_result(student_name, result_str, submission_path):
     base_name = os.path.splitext(os.path.basename(submission_path))[0]
     output_path = f"marked/{base_name}.txt"
+    
     with open(output_path, "w", encoding="utf-8") as f:
+        f.write(f"Student: {student_name}\n")
+        f.write("=" * 40 + "\n")
         f.write(result_str)
+    
     print(f"[💾] Result saved to {output_path}")
+
 
 # Move the submitted notebook to the destination folder
 def move_submission_to_destination(submission_path, destination_folder):
@@ -82,7 +88,15 @@ def move_submission_to_destination(submission_path, destination_folder):
 
 # Main
 def main():
-    notebook_path = "Submissions/Assignment_7(Hamza khan).ipynb"
+    if len(sys.argv) != 3:
+        print("Usage: python evaluate.py <notebook_path> <student_name>")
+        sys.exit(1)
+
+    notebook_path = sys.argv[1]
+    student_name = sys.argv[2]
+
+
+    # notebook_path = "Submissions/Assignment_7(Hamza khan).ipynb"
     rubric_notebook_path = "Questions/rubric.ipynb"
     destination_folder = "Destination"
 
@@ -99,7 +113,7 @@ def main():
     print(result)
 
     # Save the result to the marked folder
-    save_result(result, notebook_path)
+    save_result(student_name,result, notebook_path)
 
     # Move the notebook to the destination folder and delete from the source
     move_submission_to_destination(notebook_path, destination_folder)

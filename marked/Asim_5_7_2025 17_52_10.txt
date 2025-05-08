@@ -1,0 +1,6 @@
+Student: Asim
+========================================
+{
+  "score": 85,
+  "feedback": "The code demonstrates a solid understanding of building and training a neural network using TensorFlow for the MNIST dataset. However, it could benefit from comments to explain each step for better readability. Additionally, consider handling potential exceptions when loading the model to improve robustness."
+}
